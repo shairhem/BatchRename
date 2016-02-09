@@ -9,3 +9,5 @@ D:\temp\Projects\BatchRename\BatchRename\obj\x86\Debug\BatchRename.pdb
 D:\temp\Projects\BatchRename\BatchRename\bin\x86\Debug\BatchRename.exe
 D:\temp\Projects\BatchRename\BatchRename\bin\x86\Debug\BatchRename.pdb
 D:\temp\Projects\BatchRename\BatchRename\obj\x86\Debug\BatchRename.csprojResolveAssemblyReference.cache
+D:\temp\Projects\BatchRename\BatchRename\obj\x86\Debug\BatchRename.startForm.resources
+D:\temp\Projects\BatchRename\BatchRename\obj\x86\Debug\BatchRename.csproj.GenerateResource.Cache
