@@ -1,0 +1,6 @@
+c:\users\shairhem\documents\visual studio 2012\Projects\BatchRename\BatchRename\bin\Debug\BatchRename.exe.config
+c:\users\shairhem\documents\visual studio 2012\Projects\BatchRename\BatchRename\bin\Debug\BatchRename.exe
+c:\users\shairhem\documents\visual studio 2012\Projects\BatchRename\BatchRename\bin\Debug\BatchRename.pdb
+c:\users\shairhem\documents\visual studio 2012\Projects\BatchRename\BatchRename\obj\Debug\BatchRename.csprojResolveAssemblyReference.cache
+c:\users\shairhem\documents\visual studio 2012\Projects\BatchRename\BatchRename\obj\Debug\BatchRename.exe
+c:\users\shairhem\documents\visual studio 2012\Projects\BatchRename\BatchRename\obj\Debug\BatchRename.pdb
