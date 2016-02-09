@@ -38,20 +38,34 @@ namespace BatchRename
             FileInfo[] infos = d.GetFiles();
             foreach (FileInfo f in infos)
             {
+                Console.WriteLine("renaming " + f.Name);
                 if (f.Name != "infofile.txt")
                 {
-                    ext = f.Name.Substring(f.Name.LastIndexOf('.'));
-                    //length = f.Name.Length - 1;
-                    //Console.WriteLine(f.Name + " / " + f.Name.LastIndexOf('.') + " / " + ext);
-                    //Console.ReadKey();
-                    temp = folder + "\\" + filename + x + ext;
-                    Console.WriteLine("renaming file" + x);
-                    //Console.WriteLine(f.Name.ToString());
-                    File.Move(f.FullName, temp);
-                    infofile.Add(temp);
-                    x++;
+                    try
+                    {
+                        ext = f.Name.Substring(f.Name.LastIndexOf('.'));
+                        //length = f.Name.Length - 1;
+                        //Console.WriteLine(f.Name + " / " + f.Name.LastIndexOf('.') + " / " + ext);
+                        //Console.ReadKey();
+                        temp = folder + "\\" + filename + x + ext;
+                        //Console.WriteLine("renaming file" + x);
+                        //Console.WriteLine(f.Name.ToString());
+                        File.Move(f.FullName, temp);
+                        infofile.Add(temp);
+                        x++;
+                    }
+                    catch (Exception err)
+                    {
+                        ext = ".unknown";
+                        temp = folder + "\\" + filename + x + ext;
+                        File.Move(f.FullName, temp);
+                        infofile.Add(temp);
+                        x++;
+                    }
+                    
                 }
             }
+            op = folder;
             folder += "\\infofile.txt";
             writer = new StreamWriter(@folder);
             foreach (string i in infofile)
@@ -59,6 +73,16 @@ namespace BatchRename
                 writer.WriteLine(i);
             }
             Console.Clear();
+            writer.Close();
+            Console.WriteLine("done! Continue? [Y/N]");
+            Console.WriteLine("fix Unknown?");
+            choice = Console.ReadLine();
+            choice = choice.ToUpper();
+            if (choice == "Y")
+            {
+                fixUnknown(d,op,filename);
+                rename();
+            }
             Console.WriteLine("done! Continue? [Y/N]");
             choice = Console.ReadLine();
             choice = choice.ToUpper();
@@ -68,6 +92,30 @@ namespace BatchRename
             }
             else return;
             Console.ReadKey();
+        }
+
+        public static void fixUnknown(DirectoryInfo d,string folder,string filename)
+        {
+            FileInfo[] infos = d.GetFiles();
+            string ext = "";
+            string temp = "";
+            int x = 0;
+            foreach (FileInfo f in infos)
+            {
+                if (f.Name != "infofile.txt")
+                {
+                    ext = ".jpg";
+                    //length = f.Name.Length - 1;
+                    //Console.WriteLine(f.Name + " / " + f.Name.LastIndexOf('.') + " / " + ext);
+                    //Console.ReadKey();
+                    temp = folder + "\\" + filename + x  + ".unk" + ext;
+                    //Console.WriteLine("renaming file" + x);
+                    //Console.WriteLine(f.Name.ToString());
+                    Console.WriteLine(f.FullName + "  " + temp);
+                    File.Move(f.FullName, temp);
+                }
+                x++;
+            }
         }
     }
 }
